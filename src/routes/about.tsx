@@ -33,7 +33,7 @@ function About() {
           <div className="lg:col-span-5">
             <div className="overflow-hidden">
               <img
-                src={portrait}
+                src={portrait.url}
                 alt="Patience R."
                 width={1024}
                 height={1280}
