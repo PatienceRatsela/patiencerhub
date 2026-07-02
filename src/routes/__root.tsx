@@ -88,6 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Patience R." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Patience R. — Create. Solve. Automate. Inspire." },
+      { name: "description", content: "Patience R. Hub is a personal brand site showcasing smart solutions, digital tools, and resources." },
+      { property: "og:description", content: "Patience R. Hub is a personal brand site showcasing smart solutions, digital tools, and resources." },
+      { name: "twitter:description", content: "Patience R. Hub is a personal brand site showcasing smart solutions, digital tools, and resources." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c6fffa7-0ccb-4389-bd94-9b7598dee908/id-preview-e091c1f9--03ce3a04-1cff-4850-b391-6abb3aae6618.lovable.app-1782990357449.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0c6fffa7-0ccb-4389-bd94-9b7598dee908/id-preview-e091c1f9--03ce3a04-1cff-4850-b391-6abb3aae6618.lovable.app-1782990357449.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
