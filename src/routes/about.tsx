@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Heart } from "lucide-react";
 import { PageHeader } from "../components/PageHeader";
-import portrait from "../assets/patience-portrait.jpg";
+import portrait from "../assets/patience-portrait-cleaned.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

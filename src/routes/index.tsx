@@ -13,7 +13,7 @@ import {
   Palette,
   Bot,
 } from "lucide-react";
-import portrait from "../assets/patience-portrait.jpg";
+import portrait from "../assets/patience-portrait-cleaned.jpg.asset.json";
 import { NewsletterForm } from "../components/NewsletterForm";
 
 export const Route = createFileRoute("/")({
