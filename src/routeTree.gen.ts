@@ -9,8 +9,62 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkRouteImport } from './routes/work'
+import { Route as WhatIDoRouteImport } from './routes/what-i-do'
+import { Route as TeacherToolsRouteImport } from './routes/teacher-tools'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AutomationRouteImport } from './routes/automation'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatIDoRoute = WhatIDoRouteImport.update({
+  id: '/what-i-do',
+  path: '/what-i-do',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeacherToolsRoute = TeacherToolsRouteImport.update({
+  id: '/teacher-tools',
+  path: '/teacher-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutomationRoute = AutomationRouteImport.update({
+  id: '/automation',
+  path: '/automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +73,158 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/automation': typeof AutomationRoute
+  '/blog': typeof BlogRoute
+  '/contact': typeof ContactRoute
+  '/resources': typeof ResourcesRoute
+  '/shop': typeof ShopRoute
+  '/teacher-tools': typeof TeacherToolsRoute
+  '/what-i-do': typeof WhatIDoRoute
+  '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/automation': typeof AutomationRoute
+  '/blog': typeof BlogRoute
+  '/contact': typeof ContactRoute
+  '/resources': typeof ResourcesRoute
+  '/shop': typeof ShopRoute
+  '/teacher-tools': typeof TeacherToolsRoute
+  '/what-i-do': typeof WhatIDoRoute
+  '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/automation': typeof AutomationRoute
+  '/blog': typeof BlogRoute
+  '/contact': typeof ContactRoute
+  '/resources': typeof ResourcesRoute
+  '/shop': typeof ShopRoute
+  '/teacher-tools': typeof TeacherToolsRoute
+  '/what-i-do': typeof WhatIDoRoute
+  '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/automation'
+    | '/blog'
+    | '/contact'
+    | '/resources'
+    | '/shop'
+    | '/teacher-tools'
+    | '/what-i-do'
+    | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/automation'
+    | '/blog'
+    | '/contact'
+    | '/resources'
+    | '/shop'
+    | '/teacher-tools'
+    | '/what-i-do'
+    | '/work'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/automation'
+    | '/blog'
+    | '/contact'
+    | '/resources'
+    | '/shop'
+    | '/teacher-tools'
+    | '/what-i-do'
+    | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AutomationRoute: typeof AutomationRoute
+  BlogRoute: typeof BlogRoute
+  ContactRoute: typeof ContactRoute
+  ResourcesRoute: typeof ResourcesRoute
+  ShopRoute: typeof ShopRoute
+  TeacherToolsRoute: typeof TeacherToolsRoute
+  WhatIDoRoute: typeof WhatIDoRoute
+  WorkRoute: typeof WorkRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-i-do': {
+      id: '/what-i-do'
+      path: '/what-i-do'
+      fullPath: '/what-i-do'
+      preLoaderRoute: typeof WhatIDoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teacher-tools': {
+      id: '/teacher-tools'
+      path: '/teacher-tools'
+      fullPath: '/teacher-tools'
+      preLoaderRoute: typeof TeacherToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/automation': {
+      id: '/automation'
+      path: '/automation'
+      fullPath: '/automation'
+      preLoaderRoute: typeof AutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +237,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AutomationRoute: AutomationRoute,
+  BlogRoute: BlogRoute,
+  ContactRoute: ContactRoute,
+  ResourcesRoute: ResourcesRoute,
+  ShopRoute: ShopRoute,
+  TeacherToolsRoute: TeacherToolsRoute,
+  WhatIDoRoute: WhatIDoRoute,
+  WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
