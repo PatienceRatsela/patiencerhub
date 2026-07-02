@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Heart } from "lucide-react";
 import { PageHeader } from "../components/PageHeader";
-import portrait from "../assets/patience-portrait.jpg";
+import portrait from "../assets/patience-portrait-cleaned.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -33,7 +33,7 @@ function About() {
           <div className="lg:col-span-5">
             <div className="overflow-hidden">
               <img
-                src={portrait}
+                src={portrait.url}
                 alt="Patience R."
                 width={1024}
                 height={1280}

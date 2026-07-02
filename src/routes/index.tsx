@@ -13,7 +13,7 @@ import {
   Palette,
   Bot,
 } from "lucide-react";
-import portrait from "../assets/patience-portrait.jpg";
+import portrait from "../assets/patience-portrait-cleaned.jpg.asset.json";
 import { NewsletterForm } from "../components/NewsletterForm";
 
 export const Route = createFileRoute("/")({
@@ -135,7 +135,7 @@ function Home() {
             </div>
             <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden">
               <img
-                src={portrait}
+                src={portrait.url}
                 alt="Portrait of Patience R."
                 width={1024}
                 height={1280}
