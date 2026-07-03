@@ -19,6 +19,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AutomationRouteImport } from './routes/automation'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiNewsletterRouteImport } from './routes/api/newsletter'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -70,6 +71,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiNewsletterRoute = ApiNewsletterRouteImport.update({
+  id: '/api/newsletter',
+  path: '/api/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
+    | '/api/newsletter'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
+    | '/api/newsletter'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
+    | '/api/newsletter'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   TeacherToolsRoute: typeof TeacherToolsRoute
   WhatIDoRoute: typeof WhatIDoRoute
   WorkRoute: typeof WorkRoute
+  ApiNewsletterRoute: typeof ApiNewsletterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/newsletter': {
+      id: '/api/newsletter'
+      path: '/api/newsletter'
+      fullPath: '/api/newsletter'
+      preLoaderRoute: typeof ApiNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeacherToolsRoute: TeacherToolsRoute,
   WhatIDoRoute: WhatIDoRoute,
   WorkRoute: WorkRoute,
+  ApiNewsletterRoute: ApiNewsletterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
