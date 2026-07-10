@@ -22,30 +22,49 @@ export const Route = createFileRoute("/shop")({
   component: Shop,
 });
 
-const products = [
+type Product = {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  body: string;
+  href: string;
+  external?: boolean;
+};
+
+const products: Product[] = [
   {
     icon: Package,
     title: "xoxasocial Biz-in-a-Box",
     body: "Grab-and-go business kits, ready to launch today.",
     href: "https://xoxasocial.com",
+    external: true,
   },
   {
     icon: Bot,
     title: "Umnotho AI Bot & Skool Community",
     body: "Trade smarter with an AI-powered gold strategy tool.",
     href: "https://umnotho.com",
+    external: true,
   },
   {
     icon: Wallet,
     title: "HustleLedger",
     body: "Track every income stream, SARS-ready, in one place.",
     href: "https://hustleledger.com",
+    external: true,
+  },
+  {
+    icon: Box,
+    title: "SpazaKit",
+    body: "Done-for-you, resell-ready digital business systems built for South Africa.",
+    href: "/spazakit",
+    external: false,
   },
   {
     icon: FileText,
     title: "Printables & Guides",
     body: "Practical tools you can use immediately.",
     href: "#",
+    external: true,
   },
 ];
 
@@ -59,27 +78,50 @@ function Shop() {
 
       <section className="bg-cream py-20 text-ink">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 sm:grid-cols-2 lg:grid-cols-2 lg:px-10">
-          {products.map((p) => (
-            <a
-              key={p.title}
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col rounded-2xl border border-ink/10 bg-cream p-8 transition-all hover:-translate-y-0.5 hover:border-gold hover:shadow-lg"
-            >
-              <div className="flex items-start justify-between">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-xl border border-ink/15">
-                  <p.icon className="h-8 w-8 text-ink" strokeWidth={1.25} />
+          {products.map((p) => {
+            const Card = (
+              <div className="group flex flex-col rounded-2xl border border-ink/10 bg-cream p-8 transition-all hover:-translate-y-0.5 hover:border-gold hover:shadow-lg">
+                <div className="flex items-start justify-between">
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-xl border border-ink/15">
+                    <p.icon className="h-8 w-8 text-ink" strokeWidth={1.25} />
+                  </div>
+                  {p.external ? (
+                    <ExternalLink className="h-5 w-5 text-ink/40 group-hover:text-gold" strokeWidth={1.5} />
+                  ) : (
+                    <ArrowRight className="h-5 w-5 text-ink/40 group-hover:text-gold" strokeWidth={1.5} />
+                  )}
                 </div>
-                <ExternalLink className="h-5 w-5 text-ink/40 group-hover:text-gold" strokeWidth={1.5} />
+                <h3 className="mt-8 font-serif text-2xl">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink/70">{p.body}</p>
+                <span className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-xs font-medium text-cream group-hover:bg-gold group-hover:text-ink">
+                  {p.external ? (
+                    <>
+                      Visit <ExternalLink className="h-3.5 w-3.5" />
+                    </>
+                  ) : (
+                    <>
+                      Explore <ArrowRight className="h-3.5 w-3.5" />
+                    </>
+                  )}
+                </span>
               </div>
-              <h3 className="mt-8 font-serif text-2xl">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink/70">{p.body}</p>
-              <span className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-xs font-medium text-cream group-hover:bg-gold group-hover:text-ink">
-                Visit <ExternalLink className="h-3.5 w-3.5" />
-              </span>
-            </a>
-          ))}
+            );
+
+            return p.external ? (
+              <a
+                key={p.title}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {Card}
+              </a>
+            ) : (
+              <Link key={p.title} to={p.href}>
+                {Card}
+              </Link>
+            );
+          })}
         </div>
       </section>
     </>
