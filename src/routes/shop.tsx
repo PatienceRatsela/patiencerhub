@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ExternalLink, Package, Bot, Wallet, FileText } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ExternalLink, Package, Bot, Wallet, FileText, Box, ArrowRight } from "lucide-react";
 import { PageHeader } from "../components/PageHeader";
 
 export const Route = createFileRoute("/shop")({

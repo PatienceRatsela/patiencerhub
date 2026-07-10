@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WhatIDoRouteImport } from './routes/what-i-do'
 import { Route as TeacherToolsRouteImport } from './routes/teacher-tools'
+import { Route as SpazakitRouteImport } from './routes/spazakit'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -34,6 +35,11 @@ const WhatIDoRoute = WhatIDoRouteImport.update({
 const TeacherToolsRoute = TeacherToolsRouteImport.update({
   id: '/teacher-tools',
   path: '/teacher-tools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpazakitRoute = SpazakitRouteImport.update({
+  id: '/spazakit',
+  path: '/spazakit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
+  '/spazakit': typeof SpazakitRoute
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
+  '/spazakit': typeof SpazakitRoute
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
+  '/spazakit': typeof SpazakitRoute
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/resources'
     | '/shop'
+    | '/spazakit'
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/resources'
     | '/shop'
+    | '/spazakit'
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/resources'
     | '/shop'
+    | '/spazakit'
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ResourcesRoute: typeof ResourcesRoute
   ShopRoute: typeof ShopRoute
+  SpazakitRoute: typeof SpazakitRoute
   TeacherToolsRoute: typeof TeacherToolsRoute
   WhatIDoRoute: typeof WhatIDoRoute
   WorkRoute: typeof WorkRoute
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/teacher-tools'
       fullPath: '/teacher-tools'
       preLoaderRoute: typeof TeacherToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spazakit': {
+      id: '/spazakit'
+      path: '/spazakit'
+      fullPath: '/spazakit'
+      preLoaderRoute: typeof SpazakitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ResourcesRoute: ResourcesRoute,
   ShopRoute: ShopRoute,
+  SpazakitRoute: SpazakitRoute,
   TeacherToolsRoute: TeacherToolsRoute,
   WhatIDoRoute: WhatIDoRoute,
   WorkRoute: WorkRoute,
@@ -271,13 +292,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
