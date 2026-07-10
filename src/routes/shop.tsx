@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ExternalLink, Package, Bot, Wallet, FileText, Box, ArrowRight } from "lucide-react";
 import { PageHeader } from "../components/PageHeader";
@@ -22,8 +23,10 @@ export const Route = createFileRoute("/shop")({
   component: Shop,
 });
 
+type IconProps = { className?: string; strokeWidth?: number };
+
 type Product = {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: ComponentType<IconProps>;
   title: string;
   body: string;
   href: string;
