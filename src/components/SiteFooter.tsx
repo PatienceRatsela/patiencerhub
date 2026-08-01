@@ -50,6 +50,7 @@ export function SiteFooter() {
           </div>
           <div className="flex gap-6">
             <Link to="/about" className="hover:text-gold">About</Link>
+            <Link to="/journey" className="hover:text-gold">Journey</Link>
             <Link to="/shop" className="hover:text-gold">Shop</Link>
             <Link to="/contact" className="hover:text-gold">Contact</Link>
           </div>
