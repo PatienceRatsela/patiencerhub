@@ -188,7 +188,7 @@ function Home() {
       </section>
 
       {/* CHOOSE YOUR JOURNEY */}
-      <section className="bg-cream py-24 text-ink sm:py-36">
+      <section id="choose-your-journey" className="bg-cream py-24 text-ink sm:py-36">
         <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
           <div className="max-w-2xl">
             <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">
@@ -334,7 +334,7 @@ function Home() {
       </section>
 
       {/* FEATURED RESOURCES */}
-      <section className="bg-ink py-24 text-cream sm:py-36">
+      <section id="featured-resources" className="bg-ink py-24 text-cream sm:py-36">
         <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
           <div className="max-w-2xl">
             <p className="text-[0.65rem] tracking-[0.45em] text-gold">

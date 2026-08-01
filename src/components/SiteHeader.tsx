@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const nav = [
@@ -7,13 +7,20 @@ const nav = [
   { to: "/about", label: "About Me" },
   { to: "/what-i-do", label: "What I Do" },
   { to: "/resources", label: "Resources" },
-  { to: "/journey", label: "Journey" },
   { to: "/work", label: "Work With Me" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
+const journeyLinks = [
+  { href: "/#choose-your-journey", label: "Choose Your Journey" },
+  { href: "/#featured-resources", label: "Featured Resources" },
+  { to: "/journey", label: "The Full Journey" },
+] as const;
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [mobileJourneyOpen, setMobileJourneyOpen] = useState(false);
+
   return (
     <header className="relative z-30 bg-ink text-cream">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-6 lg:px-10">
@@ -36,6 +43,44 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
+
+          {/* Journey dropdown */}
+          <div className="group relative">
+            <button
+              className="flex items-center gap-1 text-sm text-cream/80 transition-colors group-hover:text-gold"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              Journey
+              <ChevronDown
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180"
+                strokeWidth={1.5}
+              />
+            </button>
+            <div className="invisible absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 overflow-hidden rounded-lg border border-cream/10 bg-ink opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
+              <div className="py-2">
+                {journeyLinks.map((item) =>
+                  "href" in item ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block px-5 py-2.5 text-sm text-cream/80 transition-colors hover:bg-cream/5 hover:text-gold"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="block px-5 py-2.5 text-sm text-cream/80 transition-colors hover:bg-cream/5 hover:text-gold"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
         </nav>
 
         <Link
@@ -69,6 +114,47 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
+
+            {/* Mobile Journey accordion */}
+            <div className="flex flex-col">
+              <button
+                onClick={() => setMobileJourneyOpen((v) => !v)}
+                className="flex items-center justify-between rounded-md px-2 py-3 text-sm text-cream/80 hover:bg-cream/5 hover:text-gold"
+                aria-expanded={mobileJourneyOpen}
+              >
+                <span>Journey</span>
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-300 ${mobileJourneyOpen ? "rotate-180" : ""}`}
+                  strokeWidth={1.5}
+                />
+              </button>
+              {mobileJourneyOpen && (
+                <div className="flex flex-col border-l border-cream/10 pl-4">
+                  {journeyLinks.map((item) =>
+                    "href" in item ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setOpen(false)}
+                        className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
+                      >
+                        {item.label}
+                      </Link>
+                    )
+                  )}
+                </div>
+              )}
+            </div>
+
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
