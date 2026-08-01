@@ -15,6 +15,7 @@ import { Route as TeacherToolsRouteImport } from './routes/teacher-tools'
 import { Route as SpazakitRouteImport } from './routes/spazakit'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as JourneyRouteImport } from './routes/journey'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AutomationRouteImport } from './routes/automation'
@@ -50,6 +51,11 @@ const ShopRoute = ShopRouteImport.update({
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JourneyRoute = JourneyRouteImport.update({
+  id: '/journey',
+  path: '/journey',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/journey': typeof JourneyRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
   '/spazakit': typeof SpazakitRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/journey': typeof JourneyRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
   '/spazakit': typeof SpazakitRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/journey': typeof JourneyRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
   '/spazakit': typeof SpazakitRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/automation'
     | '/blog'
     | '/contact'
+    | '/journey'
     | '/resources'
     | '/shop'
     | '/spazakit'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/automation'
     | '/blog'
     | '/contact'
+    | '/journey'
     | '/resources'
     | '/shop'
     | '/spazakit'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/automation'
     | '/blog'
     | '/contact'
+    | '/journey'
     | '/resources'
     | '/shop'
     | '/spazakit'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   AutomationRoute: typeof AutomationRoute
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
+  JourneyRoute: typeof JourneyRoute
   ResourcesRoute: typeof ResourcesRoute
   ShopRoute: typeof ShopRoute
   SpazakitRoute: typeof SpazakitRoute
@@ -230,6 +243,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/journey': {
+      id: '/journey'
+      path: '/journey'
+      fullPath: '/journey'
+      preLoaderRoute: typeof JourneyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   AutomationRoute: AutomationRoute,
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
+  JourneyRoute: JourneyRoute,
   ResourcesRoute: ResourcesRoute,
   ShopRoute: ShopRoute,
   SpazakitRoute: SpazakitRoute,
