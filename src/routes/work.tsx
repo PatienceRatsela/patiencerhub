@@ -33,7 +33,7 @@ const services = [
     icon: Flower2,
     title: "Petal & Ring",
     body: "Wedding branding, coordination, and websites — done with heart.",
-    example: { label: "Visit Petal & Ring", href: "#", external: true },
+    example: { label: "Visit Petal & Ring", href: "https://petalandring.lovable.app/", external: true },
   },
   {
     icon: MessageCircle,
