@@ -4,18 +4,21 @@ import { useState } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About Me" },
-  { to: "/what-i-do", label: "What I Do" },
-  { to: "/resources", label: "Resources" },
-  { to: "/work", label: "Work With Me" },
+  { to: "/library", label: "Opportunity Library" },
+  { to: "/kits", label: "Business Kits" },
+  { to: "/studio", label: "Studio" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
-const journeyLinks = [
-  { href: "/#choose-your-journey", label: "Choose Your Journey" },
-  { href: "/#featured-resources", label: "Featured Resources" },
-  { to: "/journey", label: "The Full Journey" },
+const moreLinks = [
+  { to: "/spazakit", label: "SpazaKit" },
+  { to: "/shop", label: "Downloads & Templates" },
+  { to: "/resources", label: "Guides & Prompt Packs" },
+  { to: "/work", label: "Past Work" },
+  { to: "/journey", label: "Building in Public" },
 ] as const;
+
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
