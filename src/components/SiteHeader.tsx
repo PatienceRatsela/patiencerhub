@@ -108,14 +108,14 @@ export function SiteHeader() {
               </Link>
             ))}
 
-            {/* Mobile Journey accordion */}
+            {/* Mobile More accordion */}
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileJourneyOpen((v) => !v)}
                 className="flex items-center justify-between rounded-md px-2 py-3 text-sm text-cream/80 hover:bg-cream/5 hover:text-gold"
                 aria-expanded={mobileJourneyOpen}
               >
-                <span>Journey</span>
+                <span>More</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-300 ${mobileJourneyOpen ? "rotate-180" : ""}`}
                   strokeWidth={1.5}
@@ -123,30 +123,20 @@ export function SiteHeader() {
               </button>
               {mobileJourneyOpen && (
                 <div className="flex flex-col border-l border-cream/10 pl-4">
-                  {journeyLinks.map((item) =>
-                    "href" in item ? (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        onClick={() => setOpen(false)}
-                        className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
-                      >
-                        {item.label}
-                      </Link>
-                    )
-                  )}
+                  {moreLinks.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
+
 
             <Link
               to="/contact"
