@@ -49,12 +49,14 @@ export function SiteFooter() {
             <span className="script text-xl text-cream">Patience R.</span>
             <span>© {new Date().getFullYear()} — All rights reserved.</span>
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
+            <Link to="/library" className="hover:text-gold">Library</Link>
+            <Link to="/kits" className="hover:text-gold">Business Kits</Link>
+            <Link to="/studio" className="hover:text-gold">Studio</Link>
             <Link to="/about" className="hover:text-gold">About</Link>
-            <Link to="/journey" className="hover:text-gold">Journey</Link>
-            <Link to="/shop" className="hover:text-gold">Shop</Link>
             <Link to="/contact" className="hover:text-gold">Contact</Link>
           </div>
+
         </div>
       </div>
     </footer>
