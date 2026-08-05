@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { Heart, Sparkles, Clock, Mail } from "lucide-react";
+import { Wrench, Boxes, Clock, Mail } from "lucide-react";
 
 const strip = [
-  { icon: Heart, title: "PASSIONATE", body: "About helping people in different ways." },
-  { icon: Sparkles, title: "PURPOSE DRIVEN", body: "Everything I do is rooted in impact." },
-  { icon: Clock, title: "EFFICIENCY FOCUSED", body: "Solutions that save you time and create freedom." },
-  { icon: Mail, title: "LET'S CONNECT", body: "Have a question or idea? I'd love to hear from you." },
+  { icon: Wrench, title: "PROBLEM FIRST", body: "Every tool here started as someone's real bottleneck." },
+  { icon: Boxes, title: "PRACTICAL BUILDS", body: "Systems you can open and use, not decks about strategy." },
+  { icon: Clock, title: "TIME BACK", body: "The measure of good work: hours you stop spending on admin." },
+  { icon: Mail, title: "LET'S TALK", body: "Got something that needs building? I'd like to hear about it." },
 ];
 
 export function SiteFooter() {
@@ -14,13 +14,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <div className="max-w-2xl">
           <h2 className="font-serif text-3xl leading-tight sm:text-[2.5rem]">
-            Let's build something{" "}
-            <span className="script text-gold">meaningful</span>.
+            Building simple tools for{" "}
+            <span className="script text-gold">real life</span>.
           </h2>
           <div className="mt-6 h-px w-20 bg-gold/70" />
           <p className="mt-7 text-sm leading-[1.9] text-cream/65">
-            Whether you're here to learn, work together, or simply follow the journey,
-            welcome to PatienceR.
+            Start it yourself with the Opportunity Library, launch faster with a Business Kit, or
+            have it built with you in the Studio.
           </p>
           <Link
             to="/contact"
@@ -29,6 +29,7 @@ export function SiteFooter() {
             Start a conversation <Mail className="h-4 w-4" strokeWidth={1.5} />
           </Link>
         </div>
+
 
         <div className="mt-20 grid grid-cols-1 gap-10 border-t border-cream/10 pt-14 sm:grid-cols-2 lg:grid-cols-4">
           {strip.map((s) => (
