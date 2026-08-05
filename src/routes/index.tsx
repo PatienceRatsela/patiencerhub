@@ -6,17 +6,17 @@ import { NewsletterForm } from "../components/NewsletterForm";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Patience R. — Build a Better Future With AI" },
+      { title: "PatienceR — Building Simple Tools for Real Life" },
       {
         name: "description",
         content:
-          "Housewife, educator and AI creator documenting the journey of building a meaningful life with AI — academy, studio, books and practical resources.",
+          "A business studio building practical tools for entrepreneurs and small businesses: an opportunity library, launch-ready business kits, and studio services.",
       },
-      { property: "og:title", content: "Patience R. — Build a Better Future With AI" },
+      { property: "og:title", content: "PatienceR — Building Simple Tools for Real Life" },
       {
         property: "og:description",
         content:
-          "A personal brand and creative ecosystem: AI, education, creativity and practical problem-solving.",
+          "Helping entrepreneurs start businesses, simplify work and build with confidence.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -25,62 +25,62 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const journeys = [
+const pillars = [
   {
     no: "01",
-    title: "Housewife in the AI Era",
-    body: "The honest documentation of running a home while building with AI — real days, real tools, real results.",
-    cta: "Follow The Story",
-    to: "/journey" as const,
+    title: "Opportunity Library",
+    body: "For people building it themselves. Business ideas, Business-in-a-Box downloads, templates, guides, checklists and prompt packs — everything needed to start.",
+    cta: "Explore the Library",
+    to: "/library" as const,
   },
   {
     no: "02",
-    title: "PatienceR Academy",
-    body: "Practical AI, automation and digital skills taught plainly, for people without a technical background.",
-    cta: "Start Learning",
-    to: "/resources" as const,
+    title: "Business Kits",
+    body: "Ready-built business systems, not templates. Each kit arrives with a website, forms, an AI assistant, workflows and branding foundations — launch-ready.",
+    cta: "Browse Business Kits",
+    to: "/kits" as const,
   },
   {
     no: "03",
-    title: "PatienceR Studio",
-    body: "Brands, websites and automations built for businesses that want to show up and stand out.",
-    cta: "See The Studio",
-    to: "/work" as const,
+    title: "Studio",
+    body: "Bookkeeping in Xero, business websites, custom AI automations, systems, branding and digital strategy. Need something built? Let's build it together.",
+    cta: "Work With Me",
+    to: "/studio" as const,
   },
   {
     no: "04",
-    title: "PatienceR Books",
-    body: "Women's fiction on identity, betrayal and self-reclamation, written as PKD Ratsela.",
-    cta: "Read & Reflect",
-    to: "/blog" as const,
+    title: "About Patience",
+    body: "A problem solver who turns ideas into working tools. The belief behind everything here: small, well-made tools save real time and change how people work.",
+    cta: "Read the Story",
+    to: "/about" as const,
   },
 ];
 
-const help = [
+const outcomes = [
   {
-    label: "AI & Automation",
-    body: "Systems that quietly do the repetitive work, so your hours go where they matter.",
-    to: "/automation" as const,
+    label: "Start something",
+    body: "A researched idea, the paperwork, the pricing and the first-week steps — in one place, ready to act on.",
+    to: "/library" as const,
   },
   {
-    label: "Digital Products",
-    body: "Done-for-you templates, kits and printables — grab-and-go tools built to be used today.",
-    to: "/shop" as const,
+    label: "Launch faster",
+    body: "Open a kit built for your trade instead of assembling a business from twelve disconnected tools.",
+    to: "/kits" as const,
   },
   {
-    label: "Branding & Websites",
-    body: "A look, a voice and a site that make people trust you before you say a word.",
-    to: "/work" as const,
+    label: "Get your books in order",
+    body: "Xero set up, cleaned up or handled monthly, so the numbers stop being the thing you avoid.",
+    to: "/studio" as const,
   },
   {
-    label: "Education & Training",
-    body: "Resources and automations for teachers, learners and school communities.",
-    to: "/teacher-tools" as const,
+    label: "Automate the repetitive work",
+    body: "Assistants and workflows that quietly handle quoting, follow-up and admin while you work.",
+    to: "/studio" as const,
   },
   {
-    label: "Purpose-driven Projects",
-    body: "Work rooted in impact — writing, community tools and projects that outlive a launch.",
-    to: "/journey" as const,
+    label: "Be taken seriously",
+    body: "A site, a brand and a way of responding that make people trust the business before they speak to you.",
+    to: "/studio" as const,
   },
 ];
 
@@ -99,36 +99,9 @@ const building = [
   },
   {
     status: "Growing",
-    title: "Teacher Tools",
-    body: "Classroom automations and resources for educators and school communities.",
-    to: "/teacher-tools" as const,
-  },
-];
-
-const featured = [
-  {
-    kind: "Kit",
-    title: "SpazaKit Boxes",
-    body: "Eight resell-ready business systems, priced to move.",
-    to: "/spazakit" as const,
-  },
-  {
-    kind: "Library",
-    title: "Templates & Printables",
-    body: "Practical tools you can put to work the same afternoon.",
-    to: "/shop" as const,
-  },
-  {
-    kind: "Guides",
-    title: "AI & Automation Guides",
-    body: "Starter workflows that save real hours, not theoretical ones.",
-    to: "/resources" as const,
-  },
-  {
-    kind: "Books",
-    title: "Fiction by PKD Ratsela",
-    body: "Stories about identity, betrayal and coming back to yourself.",
-    to: "/blog" as const,
+    title: "Business Kits",
+    body: "Launch-ready foundations for bookkeepers, cleaners, estate agents, salons and consultants.",
+    to: "/kits" as const,
   },
 ];
 
@@ -140,30 +113,28 @@ function Home() {
         <div className="mx-auto grid max-w-[1300px] grid-cols-1 items-center gap-14 px-6 pb-24 pt-14 lg:grid-cols-2 lg:gap-20 lg:px-10 lg:pb-36 lg:pt-24">
           <div className="order-2 lg:order-1">
             <p className="text-[0.65rem] tracking-[0.45em] text-gold">
-              CREATE. SOLVE. AUTOMATE. INSPIRE.
+              A BUSINESS STUDIO
             </p>
             <h1 className="mt-8 font-serif text-[2.8rem] leading-[1.03] tracking-tight sm:text-6xl lg:text-[4.5rem]">
-              Build a better
+              Building simple tools
               <br />
-              future with{" "}
-              <span className="script text-gold">AI.</span>
+              for <span className="script text-gold">real life.</span>
             </h1>
             <div className="mt-9 h-px w-24 bg-gold/70" />
             <p className="mt-8 max-w-lg text-base leading-[1.85] text-cream/70">
-              I'm Patience — a housewife, educator and AI creator documenting the journey of
-              building a meaningful life with AI. Not hype, not theory. Real projects, shared
-              while they're still being built.
+              Helping entrepreneurs start businesses, simplify work and build with confidence —
+              through practical tools, launch-ready systems and work done properly.
             </p>
             <div className="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
-                to="/journey"
+                to="/library"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-8 py-4 text-sm font-medium text-ink transition-all duration-500 hover:gap-4"
               >
-                Explore the Journey
+                Explore the Tools
                 <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
               </Link>
               <Link
-                to="/work"
+                to="/studio"
                 className="group inline-flex items-center gap-2 border-b border-cream/25 pb-1 text-sm text-cream/90 transition-colors duration-500 hover:border-gold hover:text-gold"
               >
                 Work With Me
@@ -187,36 +158,35 @@ function Home() {
         </div>
       </section>
 
-      {/* CHOOSE YOUR JOURNEY */}
-      <section id="choose-your-journey" className="bg-cream py-24 text-ink sm:py-36">
+      {/* FOUR PILLARS */}
+      <section id="the-tools" className="bg-cream py-24 text-ink sm:py-36">
         <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">
-              CHOOSE YOUR JOURNEY
-            </p>
+            <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">WHERE TO BEGIN</p>
             <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
-              One brand, four <span className="script text-gold">doorways</span>.
+              Four ways in, one{" "}
+              <span className="script text-gold">outcome</span>.
             </h2>
             <p className="mt-6 text-sm leading-[1.9] text-ink/65">
-              PatienceR is the umbrella. Whichever door you walk through, you're meeting a
-              person first — the work follows.
+              Build it yourself, buy it ready-made, or have it built with you. Whichever route you
+              take, the aim is the same: less friction, fewer moving parts, work that gets done.
             </p>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-ink/10 bg-ink/10 sm:grid-cols-2">
-            {journeys.map((j) => (
+            {pillars.map((p) => (
               <Link
-                key={j.title}
-                to={j.to}
+                key={p.title}
+                to={p.to}
                 className="group flex flex-col bg-cream p-9 transition-colors duration-500 hover:bg-[color-mix(in_oklab,var(--gold)_9%,var(--cream))] sm:p-12"
               >
-                <p className="font-serif text-xl text-gold">{j.no}</p>
+                <p className="font-serif text-xl text-gold">{p.no}</p>
                 <h3 className="mt-7 font-serif text-2xl leading-snug sm:text-[1.7rem]">
-                  {j.title}
+                  {p.title}
                 </h3>
-                <p className="mt-4 max-w-sm text-sm leading-[1.85] text-ink/65">{j.body}</p>
+                <p className="mt-4 max-w-sm flex-1 text-sm leading-[1.85] text-ink/65">{p.body}</p>
                 <span className="mt-9 inline-flex items-center gap-2 text-[0.7rem] font-medium tracking-[0.25em] text-ink transition-all duration-500 group-hover:gap-3.5 group-hover:text-gold">
-                  {j.cta.toUpperCase()}
+                  {p.cta.toUpperCase()}
                   <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
                 </span>
               </Link>
@@ -225,43 +195,39 @@ function Home() {
         </div>
       </section>
 
-      {/* HOW I HELP */}
+      {/* PROBLEMS SOLVED */}
       <section className="bg-ink py-24 text-cream sm:py-36">
         <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-xl">
-              <p className="text-[0.65rem] tracking-[0.45em] text-gold">HOW I HELP</p>
+              <p className="text-[0.65rem] tracking-[0.45em] text-gold">PROBLEMS SOLVED</p>
               <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
-                Five ways ideas turn{" "}
-                <span className="script text-gold">into impact</span>.
+                What people actually{" "}
+                <span className="script text-gold">come here for</span>.
               </h2>
             </div>
             <Link
-              to="/what-i-do"
+              to="/studio"
               className="inline-flex shrink-0 items-center gap-2 border-b border-cream/20 pb-1 text-xs tracking-[0.2em] text-cream/80 transition-colors hover:border-gold hover:text-gold"
             >
-              SEE EVERYTHING
+              SEE THE STUDIO
               <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
             </Link>
           </div>
 
           <div className="mt-16 divide-y divide-cream/10 border-t border-cream/10">
-            {help.map((h, i) => (
+            {outcomes.map((o, i) => (
               <Link
-                key={h.label}
-                to={h.to}
+                key={o.label}
+                to={o.to}
                 className="group grid grid-cols-1 items-baseline gap-4 py-9 transition-colors duration-500 sm:grid-cols-[4rem_1fr_auto] sm:gap-10"
               >
-                <span className="text-xs tracking-[0.25em] text-gold">
-                  0{i + 1}
-                </span>
+                <span className="text-xs tracking-[0.25em] text-gold">0{i + 1}</span>
                 <div>
                   <h3 className="font-serif text-2xl leading-snug transition-colors duration-500 group-hover:text-gold sm:text-[1.9rem]">
-                    {h.label}
+                    {o.label}
                   </h3>
-                  <p className="mt-3 max-w-xl text-sm leading-[1.85] text-cream/60">
-                    {h.body}
-                  </p>
+                  <p className="mt-3 max-w-xl text-sm leading-[1.85] text-cream/60">{o.body}</p>
                 </div>
                 <ArrowUpRight
                   className="hidden h-6 w-6 text-cream/40 transition-all duration-500 group-hover:-translate-y-1 group-hover:text-gold sm:block"
@@ -277,17 +243,14 @@ function Home() {
       <section className="bg-cream py-24 text-ink sm:py-36">
         <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
           <div className="max-w-2xl">
-            <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">
-              BUILDING IN PUBLIC
-            </p>
+            <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">IN THE WORKSHOP</p>
             <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
-              What I'm building{" "}
+              What's being built{" "}
               <span className="script text-gold">right now</span>.
             </h2>
             <p className="mt-6 text-sm leading-[1.9] text-ink/65">
-              I don't make content about work I haven't done. Every project below is real,
-              in motion, and documented as it goes — the wins, the rewrites and the parts
-              still unfinished.
+              Nothing here is a mock-up. Every project below is real, in use or in progress, and
+              documented as it goes.
             </p>
           </div>
 
@@ -333,54 +296,21 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED RESOURCES */}
-      <section id="featured-resources" className="bg-ink py-24 text-cream sm:py-36">
-        <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
-          <div className="max-w-2xl">
-            <p className="text-[0.65rem] tracking-[0.45em] text-gold">
-              FEATURED RESOURCES
-            </p>
-            <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
-              From the <span className="script text-gold">catalogue</span>.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-cream/10 bg-cream/10 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((f) => (
-              <Link
-                key={f.title}
-                to={f.to}
-                className="group flex h-full flex-col bg-ink p-9 transition-colors duration-500 hover:bg-cream/[0.04]"
-              >
-                <span className="text-[0.65rem] tracking-[0.3em] text-gold">
-                  {f.kind.toUpperCase()}
-                </span>
-                <h3 className="mt-7 font-serif text-xl leading-snug">{f.title}</h3>
-                <p className="mt-4 flex-1 text-sm leading-[1.85] text-cream/60">{f.body}</p>
-                <span className="mt-8 inline-flex items-center gap-2 text-[0.7rem] tracking-[0.25em] text-cream/80 transition-all duration-500 group-hover:gap-3.5 group-hover:text-gold">
-                  VIEW
-                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* NEWSLETTER */}
-      <section className="bg-cream py-24 text-ink sm:py-36">
+      <section className="bg-ink py-24 text-cream sm:py-36">
         <div className="mx-auto max-w-2xl px-6 text-center lg:px-10">
-          <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">THE NEWSLETTER</p>
+          <p className="text-[0.65rem] tracking-[0.45em] text-gold">THE NEWSLETTER</p>
           <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
-            Join the <span className="script text-gold">journey</span>.
+            New tools, as they{" "}
+            <span className="script text-gold">land</span>.
           </h2>
           <div className="mx-auto mt-7 h-px w-20 bg-gold" />
-          <p className="mx-auto mt-7 max-w-xl text-sm leading-[1.9] text-ink/65">
-            Weekly ideas, AI discoveries, behind-the-scenes projects and practical
-            inspiration delivered with intention—not noise.
+          <p className="mx-auto mt-7 max-w-xl text-sm leading-[1.9] text-cream/65">
+            A short note when a new kit, download or automation is ready — plus the practical
+            lessons from building them. No hype, no filler.
           </p>
           <div className="mx-auto mt-9 max-w-md">
-            <NewsletterForm variant="light" />
+            <NewsletterForm />
           </div>
         </div>
       </section>

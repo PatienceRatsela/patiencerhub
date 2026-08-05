@@ -4,18 +4,21 @@ import { useState } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About Me" },
-  { to: "/what-i-do", label: "What I Do" },
-  { to: "/resources", label: "Resources" },
-  { to: "/work", label: "Work With Me" },
+  { to: "/library", label: "Opportunity Library" },
+  { to: "/kits", label: "Business Kits" },
+  { to: "/studio", label: "Studio" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
-const journeyLinks = [
-  { href: "/#choose-your-journey", label: "Choose Your Journey" },
-  { href: "/#featured-resources", label: "Featured Resources" },
-  { to: "/journey", label: "The Full Journey" },
+const moreLinks = [
+  { to: "/spazakit", label: "SpazaKit" },
+  { to: "/shop", label: "Downloads & Templates" },
+  { to: "/resources", label: "Guides & Prompt Packs" },
+  { to: "/work", label: "Past Work" },
+  { to: "/journey", label: "Building in Public" },
 ] as const;
+
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -44,43 +47,33 @@ export function SiteHeader() {
             </Link>
           ))}
 
-          {/* Journey dropdown */}
+          {/* More dropdown */}
           <div className="group relative">
             <button
               className="flex items-center gap-1 text-sm text-cream/80 transition-colors group-hover:text-gold"
-              aria-expanded="false"
               aria-haspopup="true"
             >
-              Journey
+              More
               <ChevronDown
                 className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180"
                 strokeWidth={1.5}
               />
             </button>
-            <div className="invisible absolute left-1/2 top-full mt-4 w-56 -translate-x-1/2 overflow-hidden rounded-lg border border-cream/10 bg-ink opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
+            <div className="invisible absolute left-1/2 top-full mt-4 w-60 -translate-x-1/2 overflow-hidden rounded-lg border border-cream/10 bg-ink opacity-0 shadow-2xl transition-all duration-300 group-hover:visible group-hover:opacity-100">
               <div className="py-2">
-                {journeyLinks.map((item) =>
-                  "href" in item ? (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block px-5 py-2.5 text-sm text-cream/80 transition-colors hover:bg-cream/5 hover:text-gold"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="block px-5 py-2.5 text-sm text-cream/80 transition-colors hover:bg-cream/5 hover:text-gold"
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                )}
+                {moreLinks.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className="block px-5 py-2.5 text-sm text-cream/80 transition-colors hover:bg-cream/5 hover:text-gold"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
+
         </nav>
 
         <Link
@@ -115,14 +108,14 @@ export function SiteHeader() {
               </Link>
             ))}
 
-            {/* Mobile Journey accordion */}
+            {/* Mobile More accordion */}
             <div className="flex flex-col">
               <button
                 onClick={() => setMobileJourneyOpen((v) => !v)}
                 className="flex items-center justify-between rounded-md px-2 py-3 text-sm text-cream/80 hover:bg-cream/5 hover:text-gold"
                 aria-expanded={mobileJourneyOpen}
               >
-                <span>Journey</span>
+                <span>More</span>
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-300 ${mobileJourneyOpen ? "rotate-180" : ""}`}
                   strokeWidth={1.5}
@@ -130,30 +123,20 @@ export function SiteHeader() {
               </button>
               {mobileJourneyOpen && (
                 <div className="flex flex-col border-l border-cream/10 pl-4">
-                  {journeyLinks.map((item) =>
-                    "href" in item ? (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        onClick={() => setOpen(false)}
-                        className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
-                      >
-                        {item.label}
-                      </Link>
-                    )
-                  )}
+                  {moreLinks.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setOpen(false)}
+                      className="rounded-md px-2 py-2.5 text-sm text-cream/70 transition-colors hover:text-gold"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
+
 
             <Link
               to="/contact"
