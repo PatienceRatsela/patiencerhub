@@ -1,63 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { Wrench, Boxes, Clock, Mail } from "lucide-react";
+import { ArrowRight, Instagram, Linkedin } from "lucide-react";
 
-const strip = [
-  { icon: Wrench, title: "PROBLEM FIRST", body: "Every tool here started as someone's real bottleneck." },
-  { icon: Boxes, title: "PRACTICAL BUILDS", body: "Systems you can open and use, not decks about strategy." },
-  { icon: Clock, title: "TIME BACK", body: "The measure of good work: hours you stop spending on admin." },
-  { icon: Mail, title: "LET'S TALK", body: "Got something that needs building? I'd like to hear about it." },
-];
+const links = [
+  { to: "/", label: "Home" }, { to: "/education", label: "Education" }, { to: "/business-digital", label: "Business & Digital" },
+  { to: "/resources", label: "Resources" }, { to: "/about", label: "About" }, { to: "/blog", label: "Blog" }, { to: "/contact", label: "Contact" },
+] as const;
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-cream">
-      <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
-        <div className="max-w-2xl">
-          <h2 className="font-serif text-3xl leading-tight sm:text-[2.5rem]">
-            Building simple tools for{" "}
-            <span className="script text-gold">real life</span>.
-          </h2>
-          <div className="mt-6 h-px w-20 bg-gold/70" />
-          <p className="mt-7 text-sm leading-[1.9] text-cream/65">
-            Start it yourself with the Opportunity Library, launch faster with a Business Kit, or
-            have it built with you in the Studio.
-          </p>
-          <Link
-            to="/contact"
-            className="mt-9 inline-flex items-center gap-2.5 rounded-full border border-cream/25 px-7 py-3.5 text-sm text-cream transition-colors duration-500 hover:border-gold hover:text-gold"
-          >
-            Start a conversation <Mail className="h-4 w-4" strokeWidth={1.5} />
-          </Link>
+    <footer className="border-t border-cream/10 bg-ink text-cream">
+      <div className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto_1fr]">
+          <div><Link to="/" className="script text-4xl">Patience<span className="text-gold">R.</span></Link><p className="mt-2 text-[0.5rem] tracking-[0.28em] text-cream/45">IDEAS · EDUCATION · DIGITAL SOLUTIONS</p></div>
+          <div className="text-center"><p className="script text-2xl text-gold">Let&apos;s build something good.</p><Link to="/contact" className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold/70 px-5 py-2.5 text-xs">Get in Touch <ArrowRight className="h-3.5 w-3.5" /></Link></div>
+          <div className="flex items-center gap-3 lg:justify-end"><a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-cream/60 hover:text-gold"><Instagram className="h-4 w-4" /></a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-cream/60 hover:text-gold"><Linkedin className="h-4 w-4" /></a></div>
         </div>
-
-
-        <div className="mt-20 grid grid-cols-1 gap-10 border-t border-cream/10 pt-14 sm:grid-cols-2 lg:grid-cols-4">
-          {strip.map((s) => (
-            <div key={s.title} className="flex items-start gap-4">
-              <s.icon className="mt-1 h-6 w-6 shrink-0 text-gold" strokeWidth={1.25} />
-              <div className="min-w-0">
-                <p className="text-[0.65rem] tracking-[0.3em] text-cream/90">{s.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-cream/55">{s.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-cream/10 pt-8 text-xs text-cream/50 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-3">
-            <span className="script text-xl text-cream">Patience R.</span>
-            <span>© {new Date().getFullYear()} — All rights reserved.</span>
-          </div>
-          <div className="flex flex-wrap gap-6">
-            <Link to="/library" className="hover:text-gold">Library</Link>
-            <Link to="/kits" className="hover:text-gold">Business Kits</Link>
-            <Link to="/studio" className="hover:text-gold">Studio</Link>
-            <Link to="/about" className="hover:text-gold">About</Link>
-            <Link to="/contact" className="hover:text-gold">Contact</Link>
-          </div>
-
-        </div>
+        <div className="mt-12 flex flex-col gap-6 border-t border-cream/10 pt-7 lg:flex-row lg:items-center lg:justify-between"><p className="text-[0.65rem] text-cream/42">© 2026 PatienceR. All rights reserved.</p><nav className="flex flex-wrap gap-x-5 gap-y-3">{links.map((item) => <Link key={item.to} to={item.to} className="text-[0.65rem] text-cream/52 hover:text-gold">{item.label}</Link>)}</nav><p className="text-[0.65rem] text-cream/42">Designed with purpose. Built for impact.</p></div>
       </div>
     </footer>
   );
