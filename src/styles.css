@@ -46,9 +46,9 @@
   --gold: oklch(0.76 0.09 70);            /* #D4A574-ish */
   --gold-soft: oklch(0.86 0.055 78);
 
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-script: "Dancing Script", "Instrument Serif", cursive;
-  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-script: "Dancing Script", "Playfair Display", cursive;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   /* Semantic — light (cream) */
   --background: var(--cream);
@@ -107,7 +107,7 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -115,15 +115,6 @@
   font-family: var(--font-script);
   font-weight: 600;
   font-style: italic;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 @utility gold-underline {

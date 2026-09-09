@@ -1,27 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  Bot,
-  BookOpen,
-  BriefcaseBusiness,
-  GraduationCap,
-  Heart,
-  Laptop,
-  Lightbulb,
-  ShoppingBag,
-} from "lucide-react";
-import heroDesk from "../assets/patiencer-hero-desk.jpg";
-import educationImage from "../assets/patiencer-education.jpg";
-import businessImage from "../assets/patiencer-business-digital.jpg";
-import resourcesImage from "../assets/patiencer-resources-still-life.jpg";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import portrait from "../assets/patience-portrait-cleaned.jpg.asset.json";
+import { NewsletterForm } from "../components/NewsletterForm";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PatienceR — Ideas, Education & Digital Solutions" },
-      { name: "description", content: "Practical solutions for education, business and everyday digital life — built by PatienceR." },
-      { property: "og:title", content: "PatienceR — Ideas, Education & Digital Solutions" },
-      { property: "og:description", content: "Useful things for people who are trying to make something work." },
+      { title: "Patience R. — Build a Better Future With AI" },
+      {
+        name: "description",
+        content:
+          "Housewife, educator and AI creator documenting the journey of building a meaningful life with AI — academy, studio, books and practical resources.",
+      },
+      { property: "og:title", content: "Patience R. — Build a Better Future With AI" },
+      {
+        property: "og:description",
+        content:
+          "A personal brand and creative ecosystem: AI, education, creativity and practical problem-solving.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -29,128 +25,365 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const pillars = [
-  { icon: Bot, title: "AI + Automation", body: "Smart tools and systems that save time and increase productivity.", to: "/automation" as const },
-  { icon: ShoppingBag, title: "Digital Products", body: "Templates, guides, resources and solutions you can actually use.", to: "/resources" as const },
-  { icon: Laptop, title: "Branding + Websites", body: "Build your digital presence and tell your story with confidence.", to: "/work" as const },
-  { icon: GraduationCap, title: "Education Tools", body: "Resources, teacher tools, learning support and school solutions.", to: "/education" as const },
-  { icon: Heart, title: "Inspiration + Life", body: "Because a balanced mind builds better ideas and better tomorrows.", to: "/blog" as const },
+const journeys = [
+  {
+    no: "01",
+    title: "Housewife in the AI Era",
+    body: "The honest documentation of running a home while building with AI — real days, real tools, real results.",
+    cta: "Follow The Story",
+    to: "/journey" as const,
+  },
+  {
+    no: "02",
+    title: "PatienceR Academy",
+    body: "Practical AI, automation and digital skills taught plainly, for people without a technical background.",
+    cta: "Start Learning",
+    to: "/resources" as const,
+  },
+  {
+    no: "03",
+    title: "PatienceR Studio",
+    body: "Brands, websites and automations built for businesses that want to show up and stand out.",
+    cta: "See The Studio",
+    to: "/work" as const,
+  },
+  {
+    no: "04",
+    title: "PatienceR Books",
+    body: "Women's fiction on identity, betrayal and self-reclamation, written as PKD Ratsela.",
+    cta: "Read & Reflect",
+    to: "/blog" as const,
+  },
 ];
 
-const products = [
-  { title: "FutureProof Kit", price: "For kids & learners", to: "/education" as const },
-  { title: "Business Starter Tools", price: "For small businesses", to: "/resources" as const },
-  { title: "SpazaKit", price: "Resell-ready systems", to: "/spazakit" as const },
-  { title: "Business Kits", price: "Launch-ready foundations", to: "/kits" as const },
+const help = [
+  {
+    label: "AI & Automation",
+    body: "Systems that quietly do the repetitive work, so your hours go where they matter.",
+    to: "/automation" as const,
+  },
+  {
+    label: "Digital Products",
+    body: "Done-for-you templates, kits and printables — grab-and-go tools built to be used today.",
+    to: "/shop" as const,
+  },
+  {
+    label: "Branding & Websites",
+    body: "A look, a voice and a site that make people trust you before you say a word.",
+    to: "/work" as const,
+  },
+  {
+    label: "Education & Training",
+    body: "Resources and automations for teachers, learners and school communities.",
+    to: "/teacher-tools" as const,
+  },
+  {
+    label: "Purpose-driven Projects",
+    body: "Work rooted in impact — writing, community tools and projects that outlive a launch.",
+    to: "/journey" as const,
+  },
 ];
 
-const journal = [
-  { tag: "Education", title: "Helping young people build skills for the digital world", to: "/education" as const, image: educationImage },
-  { tag: "Business", title: "The useful AI tools small businesses actually need", to: "/business-digital" as const, image: businessImage },
-  { tag: "Resources", title: "Practical templates to help an idea move forward", to: "/resources" as const, image: resourcesImage },
+const building = [
+  {
+    status: "In progress",
+    title: "SpazaKit",
+    body: "Resell-ready digital business systems built for South African entrepreneurs.",
+    to: "/spazakit" as const,
+  },
+  {
+    status: "Live",
+    title: "FutureProof Kit",
+    body: "Four buildable skills for kids growing up in a world that Googles everyone first.",
+    href: "https://futureproofkit.lovable.app/",
+  },
+  {
+    status: "Growing",
+    title: "Teacher Tools",
+    body: "Classroom automations and resources for educators and school communities.",
+    to: "/teacher-tools" as const,
+  },
+];
+
+const featured = [
+  {
+    kind: "Kit",
+    title: "SpazaKit Boxes",
+    body: "Eight resell-ready business systems, priced to move.",
+    to: "/spazakit" as const,
+  },
+  {
+    kind: "Library",
+    title: "Templates & Printables",
+    body: "Practical tools you can put to work the same afternoon.",
+    to: "/shop" as const,
+  },
+  {
+    kind: "Guides",
+    title: "AI & Automation Guides",
+    body: "Starter workflows that save real hours, not theoretical ones.",
+    to: "/resources" as const,
+  },
+  {
+    kind: "Books",
+    title: "Fiction by PKD Ratsela",
+    body: "Stories about identity, betrayal and coming back to yourself.",
+    to: "/blog" as const,
+  },
 ];
 
 function Home() {
   return (
     <>
-      <section className="relative min-h-[680px] overflow-hidden bg-ink text-cream lg:min-h-[760px]">
-        <img src={heroDesk} alt="A warm PatienceR workspace with a notebook, coffee and laptop" width={1536} height={1024} className="absolute inset-0 h-full w-full object-cover object-center" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--ink)_0%,color-mix(in_oklab,var(--ink)_90%,transparent)_35%,color-mix(in_oklab,var(--ink)_28%,transparent)_72%,color-mix(in_oklab,var(--ink)_10%,transparent)_100%)]" />
-        <div className="relative mx-auto flex min-h-[680px] max-w-[1400px] items-center px-6 py-20 lg:min-h-[760px] lg:px-10">
-          <div className="max-w-2xl">
-            <p className="text-[0.65rem] font-semibold tracking-[0.42em] text-gold">PATIENCER</p>
-            <h1 className="mt-6 max-w-xl font-serif text-5xl leading-[0.98] sm:text-7xl lg:text-[5.6rem]">
-              I help ideas<br /><span className="script text-gold">turn into impact.</span>
-            </h1>
-            <p className="mt-8 max-w-xl text-base leading-8 text-cream/78">
-              Practical solutions for education, business and everyday digital life. From resources and learning support to digital systems, AI and business solutions — I build useful things for people who are trying to make something work.
+      {/* HERO */}
+      <section className="bg-ink text-cream">
+        <div className="mx-auto grid max-w-[1300px] grid-cols-1 items-center gap-14 px-6 pb-24 pt-14 lg:grid-cols-2 lg:gap-20 lg:px-10 lg:pb-36 lg:pt-24">
+          <div className="order-2 lg:order-1">
+            <p className="text-[0.65rem] tracking-[0.45em] text-gold">
+              CREATE. SOLVE. AUTOMATE. INSPIRE.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/education" className="inline-flex items-center gap-3 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink transition-transform duration-300 hover:-translate-y-0.5">Explore Education <ArrowRight className="h-4 w-4" /></Link>
-              <Link to="/business-digital" className="inline-flex items-center gap-3 rounded-full border border-cream/50 px-7 py-3.5 text-sm font-medium text-cream transition-colors hover:border-gold hover:text-gold">Explore Business & Digital <ArrowRight className="h-4 w-4" /></Link>
+            <h1 className="mt-8 font-serif text-[2.8rem] leading-[1.03] tracking-tight sm:text-6xl lg:text-[4.5rem]">
+              Build a better
+              <br />
+              future with{" "}
+              <span className="script text-gold">AI.</span>
+            </h1>
+            <div className="mt-9 h-px w-24 bg-gold/70" />
+            <p className="mt-8 max-w-lg text-base leading-[1.85] text-cream/70">
+              I'm Patience — a housewife, educator and AI creator documenting the journey of
+              building a meaningful life with AI. Not hype, not theory. Real projects, shared
+              while they're still being built.
+            </p>
+            <div className="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link
+                to="/journey"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-8 py-4 text-sm font-medium text-ink transition-all duration-500 hover:gap-4"
+              >
+                Explore the Journey
+                <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+              </Link>
+              <Link
+                to="/work"
+                className="group inline-flex items-center gap-2 border-b border-cream/25 pb-1 text-sm text-cream/90 transition-colors duration-500 hover:border-gold hover:text-gold"
+              >
+                Work With Me
+                <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-lg overflow-hidden">
+              <img
+                src={portrait.url}
+                alt="Editorial portrait of Patience R."
+                width={1024}
+                height={1280}
+                className="h-full w-full object-cover grayscale transition-all duration-[1200ms] hover:grayscale-0"
+              />
+              <div className="pointer-events-none absolute inset-0 border border-cream/10" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="grid bg-cream text-ink lg:grid-cols-2">
-        <Pathway icon={GraduationCap} eyebrow="Schools · Teachers · Learners · Parents" title="For Education" body="Practical tools, resources and solutions that make education work better — in classrooms and at home." to="/education" image={educationImage} imageAlt="A learner working in a classroom" />
-        <Pathway icon={Laptop} eyebrow="Entrepreneurs · Small Businesses · Creators" title="For Business & Digital" body="Turn your idea into something that works. Websites, AI, automation, digital systems and practical tools to help you build, grow and thrive." to="/business-digital" image={businessImage} imageAlt="A modern small business workspace" reverse />
-      </section>
-
-      <section className="bg-cream py-24 text-ink sm:py-32">
-        <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
-          <div className="text-center">
-            <p className="text-[0.62rem] font-semibold tracking-[0.4em] text-gold">EXPLORE WHAT I BUILD</p>
-            <h2 className="mt-5 font-serif text-4xl sm:text-5xl">Five pillars, <span className="script text-gold">one mission.</span></h2>
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-ink/62">Different tools. One purpose — to help people learn, grow and turn their ideas into something real.</p>
+      {/* CHOOSE YOUR JOURNEY */}
+      <section id="choose-your-journey" className="bg-cream py-24 text-ink sm:py-36">
+        <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">
+              CHOOSE YOUR JOURNEY
+            </p>
+            <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
+              One brand, four <span className="script text-gold">doorways</span>.
+            </h2>
+            <p className="mt-6 text-sm leading-[1.9] text-ink/65">
+              PatienceR is the umbrella. Whichever door you walk through, you're meeting a
+              person first — the work follows.
+            </p>
           </div>
-          <div className="mt-16 grid gap-px bg-ink/12 sm:grid-cols-2 lg:grid-cols-5">
-            {pillars.map((pillar) => (
-              <Link key={pillar.title} to={pillar.to} className="group flex min-h-72 flex-col items-center bg-cream px-7 py-10 text-center transition-colors hover:bg-card">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold-soft/55"><pillar.icon className="h-5 w-5" strokeWidth={1.4} /></span>
-                <h3 className="mt-6 text-[0.7rem] font-sans font-semibold tracking-[0.2em]">{pillar.title.toUpperCase()}</h3>
-                <p className="mt-4 flex-1 text-sm leading-6 text-ink/62">{pillar.body}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold group-hover:text-gold">Learn More <ArrowRight className="h-3.5 w-3.5" /></span>
+
+          <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-ink/10 bg-ink/10 sm:grid-cols-2">
+            {journeys.map((j) => (
+              <Link
+                key={j.title}
+                to={j.to}
+                className="group flex flex-col bg-cream p-9 transition-colors duration-500 hover:bg-[color-mix(in_oklab,var(--gold)_9%,var(--cream))] sm:p-12"
+              >
+                <p className="font-serif text-xl text-gold">{j.no}</p>
+                <h3 className="mt-7 font-serif text-2xl leading-snug sm:text-[1.7rem]">
+                  {j.title}
+                </h3>
+                <p className="mt-4 max-w-sm text-sm leading-[1.85] text-ink/65">{j.body}</p>
+                <span className="mt-9 inline-flex items-center gap-2 text-[0.7rem] font-medium tracking-[0.25em] text-ink transition-all duration-500 group-hover:gap-3.5 group-hover:text-gold">
+                  {j.cta.toUpperCase()}
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+                </span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="grid bg-card text-ink lg:grid-cols-[0.85fr_1.65fr]">
-        <img src={resourcesImage} alt="PatienceR notebooks and practical guides" width={1280} height={960} loading="lazy" className="h-full min-h-[420px] w-full object-cover" />
-        <div className="grid px-6 py-20 sm:px-12 lg:grid-cols-[1fr_0.85fr] lg:gap-14 lg:px-16">
-          <div>
-            <p className="text-[0.62rem] font-semibold tracking-[0.4em] text-gold">FEATURED RESOURCES</p>
-            <h2 className="mt-5 max-w-md font-serif text-4xl leading-tight sm:text-5xl">Books, templates & tools for real life.</h2>
-            <p className="mt-6 max-w-md text-sm leading-7 text-ink/65">From educational resources and workbooks to business templates and digital tools — everything here is designed to make your life easier and your goals closer.</p>
-            <Link to="/resources" className="mt-9 inline-flex items-center gap-3 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-cream">Browse all resources <ArrowRight className="h-4 w-4" /></Link>
+      {/* HOW I HELP */}
+      <section className="bg-ink py-24 text-cream sm:py-36">
+        <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-xl">
+              <p className="text-[0.65rem] tracking-[0.45em] text-gold">HOW I HELP</p>
+              <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
+                Five ways ideas turn{" "}
+                <span className="script text-gold">into impact</span>.
+              </h2>
+            </div>
+            <Link
+              to="/what-i-do"
+              className="inline-flex shrink-0 items-center gap-2 border-b border-cream/20 pb-1 text-xs tracking-[0.2em] text-cream/80 transition-colors hover:border-gold hover:text-gold"
+            >
+              SEE EVERYTHING
+              <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+            </Link>
           </div>
-          <div className="mt-12 divide-y divide-ink/12 border-y border-ink/12 lg:mt-0">
-            {products.map((product) => (
-              <Link key={product.title} to={product.to} className="group flex items-center gap-4 py-5">
-                <span className="flex h-12 w-10 shrink-0 items-center justify-center bg-gold-soft/45"><BookOpen className="h-5 w-5" strokeWidth={1.3} /></span>
-                <span className="min-w-0 flex-1"><strong className="block font-serif text-base font-normal">{product.title}</strong><span className="mt-1 block text-xs text-ink/50">{product.price}</span></span>
-                <ArrowRight className="h-4 w-4 text-gold transition-transform group-hover:translate-x-1" />
+
+          <div className="mt-16 divide-y divide-cream/10 border-t border-cream/10">
+            {help.map((h, i) => (
+              <Link
+                key={h.label}
+                to={h.to}
+                className="group grid grid-cols-1 items-baseline gap-4 py-9 transition-colors duration-500 sm:grid-cols-[4rem_1fr_auto] sm:gap-10"
+              >
+                <span className="text-xs tracking-[0.25em] text-gold">
+                  0{i + 1}
+                </span>
+                <div>
+                  <h3 className="font-serif text-2xl leading-snug transition-colors duration-500 group-hover:text-gold sm:text-[1.9rem]">
+                    {h.label}
+                  </h3>
+                  <p className="mt-3 max-w-xl text-sm leading-[1.85] text-cream/60">
+                    {h.body}
+                  </p>
+                </div>
+                <ArrowUpRight
+                  className="hidden h-6 w-6 text-cream/40 transition-all duration-500 group-hover:-translate-y-1 group-hover:text-gold sm:block"
+                  strokeWidth={1.25}
+                />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-cream sm:py-24">
-        <div className="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[0.72fr_2fr] lg:px-10">
-          <div>
-            <p className="text-[0.62rem] font-semibold tracking-[0.4em] text-gold">THE PATIENCER JOURNAL</p>
-            <h2 className="mt-6 max-w-sm font-serif text-3xl leading-tight sm:text-4xl">Ideas, resources and practical notes for learning, business and building in a digital world.</h2>
-            <Link to="/blog" className="mt-8 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-gold">READ THE JOURNAL <ArrowRight className="h-4 w-4" /></Link>
+      {/* BUILDING IN PUBLIC */}
+      <section className="bg-cream py-24 text-ink sm:py-36">
+        <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">
+              BUILDING IN PUBLIC
+            </p>
+            <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
+              What I'm building{" "}
+              <span className="script text-gold">right now</span>.
+            </h2>
+            <p className="mt-6 text-sm leading-[1.9] text-ink/65">
+              I don't make content about work I haven't done. Every project below is real,
+              in motion, and documented as it goes — the wins, the rewrites and the parts
+              still unfinished.
+            </p>
           </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {journal.map((story) => (
-              <Link key={story.title} to={story.to} className="group border border-cream/15 bg-ink">
-                <div className="aspect-[16/8] overflow-hidden"><img src={story.image} alt="" width={1280} height={960} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
-                <div className="p-6"><p className="text-[0.58rem] tracking-[0.25em] text-gold">{story.tag.toUpperCase()}</p><h3 className="mt-3 font-serif text-lg leading-snug">{story.title}</h3><span className="mt-5 inline-flex items-center gap-2 text-xs text-gold">Read more <ArrowRight className="h-3.5 w-3.5" /></span></div>
+
+          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {building.map((b) => {
+              const inner = (
+                <div className="flex h-full flex-col border border-ink/10 bg-cream p-9 transition-all duration-500 group-hover:border-gold">
+                  <div className="flex items-center gap-3">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                    <span className="text-[0.65rem] tracking-[0.3em] text-ink/50">
+                      {b.status.toUpperCase()}
+                    </span>
+                  </div>
+                  <h3 className="mt-7 font-serif text-2xl">{b.title}</h3>
+                  <p className="mt-4 flex-1 text-sm leading-[1.85] text-ink/65">{b.body}</p>
+                  <span className="mt-8 inline-flex items-center gap-2 text-[0.7rem] tracking-[0.25em] text-ink transition-all duration-500 group-hover:gap-3.5 group-hover:text-gold">
+                    {b.href ? "VISIT PROJECT" : "EXPLORE"}
+                    {b.href ? (
+                      <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    ) : (
+                      <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    )}
+                  </span>
+                </div>
+              );
+              return b.href ? (
+                <a
+                  key={b.title}
+                  href={b.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  {inner}
+                </a>
+              ) : (
+                <Link key={b.title} to={b.to!} className="group">
+                  {inner}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED RESOURCES */}
+      <section id="featured-resources" className="bg-ink py-24 text-cream sm:py-36">
+        <div className="mx-auto max-w-[1300px] px-6 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="text-[0.65rem] tracking-[0.45em] text-gold">
+              FEATURED RESOURCES
+            </p>
+            <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
+              From the <span className="script text-gold">catalogue</span>.
+            </h2>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-cream/10 bg-cream/10 sm:grid-cols-2 lg:grid-cols-4">
+            {featured.map((f) => (
+              <Link
+                key={f.title}
+                to={f.to}
+                className="group flex h-full flex-col bg-ink p-9 transition-colors duration-500 hover:bg-cream/[0.04]"
+              >
+                <span className="text-[0.65rem] tracking-[0.3em] text-gold">
+                  {f.kind.toUpperCase()}
+                </span>
+                <h3 className="mt-7 font-serif text-xl leading-snug">{f.title}</h3>
+                <p className="mt-4 flex-1 text-sm leading-[1.85] text-cream/60">{f.body}</p>
+                <span className="mt-8 inline-flex items-center gap-2 text-[0.7rem] tracking-[0.25em] text-cream/80 transition-all duration-500 group-hover:gap-3.5 group-hover:text-gold">
+                  VIEW
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
+                </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEWSLETTER */}
+      <section className="bg-cream py-24 text-ink sm:py-36">
+        <div className="mx-auto max-w-2xl px-6 text-center lg:px-10">
+          <p className="text-[0.65rem] tracking-[0.45em] text-ink/45">THE NEWSLETTER</p>
+          <h2 className="mt-6 font-serif text-3xl leading-tight sm:text-[2.75rem]">
+            Join the <span className="script text-gold">journey</span>.
+          </h2>
+          <div className="mx-auto mt-7 h-px w-20 bg-gold" />
+          <p className="mx-auto mt-7 max-w-xl text-sm leading-[1.9] text-ink/65">
+            Weekly ideas, AI discoveries, behind-the-scenes projects and practical
+            inspiration delivered with intention—not noise.
+          </p>
+          <div className="mx-auto mt-9 max-w-md">
+            <NewsletterForm variant="light" />
           </div>
         </div>
       </section>
     </>
-  );
-}
-
-function Pathway({ icon: Icon, eyebrow, title, body, to, image, imageAlt, reverse = false }: { icon: typeof Lightbulb; eyebrow: string; title: string; body: string; to: "/education" | "/business-digital"; image: string; imageAlt: string; reverse?: boolean }) {
-  return (
-    <article className="grid min-h-[430px] sm:grid-cols-2">
-      <div className={`flex flex-col justify-center px-8 py-12 sm:px-10 lg:px-14 ${reverse ? "sm:order-2" : ""}`}>
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold-soft/50"><Icon className="h-6 w-6" strokeWidth={1.3} /></span>
-        <h2 className="mt-6 font-serif text-3xl sm:text-4xl">{title}</h2>
-        <p className="mt-3 text-[0.6rem] font-semibold tracking-[0.24em] text-ink/55">{eyebrow.toUpperCase()}</p>
-        <p className="mt-5 text-sm leading-7 text-ink/65">{body}</p>
-        <Link to={to} className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-xs font-semibold text-cream">Explore <ArrowRight className="h-3.5 w-3.5" /></Link>
-      </div>
-      <img src={image} alt={imageAlt} width={1280} height={960} loading="lazy" className={`h-full min-h-72 w-full object-cover ${reverse ? "sm:order-1" : ""}`} />
-    </article>
   );
 }

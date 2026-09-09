@@ -12,16 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WhatIDoRouteImport } from './routes/what-i-do'
 import { Route as TeacherToolsRouteImport } from './routes/teacher-tools'
-import { Route as StudioRouteImport } from './routes/studio'
 import { Route as SpazakitRouteImport } from './routes/spazakit'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ResourcesRouteImport } from './routes/resources'
-import { Route as LibraryRouteImport } from './routes/library'
-import { Route as KitsRouteImport } from './routes/kits'
 import { Route as JourneyRouteImport } from './routes/journey'
-import { Route as EducationRouteImport } from './routes/education'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BusinessDigitalRouteImport } from './routes/business-digital'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AutomationRouteImport } from './routes/automation'
 import { Route as AboutRouteImport } from './routes/about'
@@ -43,11 +38,6 @@ const TeacherToolsRoute = TeacherToolsRouteImport.update({
   path: '/teacher-tools',
   getParentRoute: () => rootRouteImport,
 } as any)
-const StudioRoute = StudioRouteImport.update({
-  id: '/studio',
-  path: '/studio',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SpazakitRoute = SpazakitRouteImport.update({
   id: '/spazakit',
   path: '/spazakit',
@@ -63,34 +53,14 @@ const ResourcesRoute = ResourcesRouteImport.update({
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LibraryRoute = LibraryRouteImport.update({
-  id: '/library',
-  path: '/library',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KitsRoute = KitsRouteImport.update({
-  id: '/kits',
-  path: '/kits',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const JourneyRoute = JourneyRouteImport.update({
   id: '/journey',
   path: '/journey',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EducationRoute = EducationRouteImport.update({
-  id: '/education',
-  path: '/education',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusinessDigitalRoute = BusinessDigitalRouteImport.update({
-  id: '/business-digital',
-  path: '/business-digital',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -124,16 +94,11 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
-  '/business-digital': typeof BusinessDigitalRoute
   '/contact': typeof ContactRoute
-  '/education': typeof EducationRoute
   '/journey': typeof JourneyRoute
-  '/kits': typeof KitsRoute
-  '/library': typeof LibraryRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
   '/spazakit': typeof SpazakitRoute
-  '/studio': typeof StudioRoute
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
@@ -144,16 +109,11 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
-  '/business-digital': typeof BusinessDigitalRoute
   '/contact': typeof ContactRoute
-  '/education': typeof EducationRoute
   '/journey': typeof JourneyRoute
-  '/kits': typeof KitsRoute
-  '/library': typeof LibraryRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
   '/spazakit': typeof SpazakitRoute
-  '/studio': typeof StudioRoute
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
@@ -165,16 +125,11 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
-  '/business-digital': typeof BusinessDigitalRoute
   '/contact': typeof ContactRoute
-  '/education': typeof EducationRoute
   '/journey': typeof JourneyRoute
-  '/kits': typeof KitsRoute
-  '/library': typeof LibraryRoute
   '/resources': typeof ResourcesRoute
   '/shop': typeof ShopRoute
   '/spazakit': typeof SpazakitRoute
-  '/studio': typeof StudioRoute
   '/teacher-tools': typeof TeacherToolsRoute
   '/what-i-do': typeof WhatIDoRoute
   '/work': typeof WorkRoute
@@ -187,16 +142,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/automation'
     | '/blog'
-    | '/business-digital'
     | '/contact'
-    | '/education'
     | '/journey'
-    | '/kits'
-    | '/library'
     | '/resources'
     | '/shop'
     | '/spazakit'
-    | '/studio'
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
@@ -207,16 +157,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/automation'
     | '/blog'
-    | '/business-digital'
     | '/contact'
-    | '/education'
     | '/journey'
-    | '/kits'
-    | '/library'
     | '/resources'
     | '/shop'
     | '/spazakit'
-    | '/studio'
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
@@ -227,16 +172,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/automation'
     | '/blog'
-    | '/business-digital'
     | '/contact'
-    | '/education'
     | '/journey'
-    | '/kits'
-    | '/library'
     | '/resources'
     | '/shop'
     | '/spazakit'
-    | '/studio'
     | '/teacher-tools'
     | '/what-i-do'
     | '/work'
@@ -248,16 +188,11 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AutomationRoute: typeof AutomationRoute
   BlogRoute: typeof BlogRoute
-  BusinessDigitalRoute: typeof BusinessDigitalRoute
   ContactRoute: typeof ContactRoute
-  EducationRoute: typeof EducationRoute
   JourneyRoute: typeof JourneyRoute
-  KitsRoute: typeof KitsRoute
-  LibraryRoute: typeof LibraryRoute
   ResourcesRoute: typeof ResourcesRoute
   ShopRoute: typeof ShopRoute
   SpazakitRoute: typeof SpazakitRoute
-  StudioRoute: typeof StudioRoute
   TeacherToolsRoute: typeof TeacherToolsRoute
   WhatIDoRoute: typeof WhatIDoRoute
   WorkRoute: typeof WorkRoute
@@ -287,13 +222,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeacherToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/studio': {
-      id: '/studio'
-      path: '/studio'
-      fullPath: '/studio'
-      preLoaderRoute: typeof StudioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/spazakit': {
       id: '/spazakit'
       path: '/spazakit'
@@ -315,20 +243,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/library': {
-      id: '/library'
-      path: '/library'
-      fullPath: '/library'
-      preLoaderRoute: typeof LibraryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kits': {
-      id: '/kits'
-      path: '/kits'
-      fullPath: '/kits'
-      preLoaderRoute: typeof KitsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/journey': {
       id: '/journey'
       path: '/journey'
@@ -336,25 +250,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/education': {
-      id: '/education'
-      path: '/education'
-      fullPath: '/education'
-      preLoaderRoute: typeof EducationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business-digital': {
-      id: '/business-digital'
-      path: '/business-digital'
-      fullPath: '/business-digital'
-      preLoaderRoute: typeof BusinessDigitalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -400,16 +300,11 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AutomationRoute: AutomationRoute,
   BlogRoute: BlogRoute,
-  BusinessDigitalRoute: BusinessDigitalRoute,
   ContactRoute: ContactRoute,
-  EducationRoute: EducationRoute,
   JourneyRoute: JourneyRoute,
-  KitsRoute: KitsRoute,
-  LibraryRoute: LibraryRoute,
   ResourcesRoute: ResourcesRoute,
   ShopRoute: ShopRoute,
   SpazakitRoute: SpazakitRoute,
-  StudioRoute: StudioRoute,
   TeacherToolsRoute: TeacherToolsRoute,
   WhatIDoRoute: WhatIDoRoute,
   WorkRoute: WorkRoute,
@@ -418,13 +313,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
