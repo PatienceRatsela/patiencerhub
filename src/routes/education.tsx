@@ -9,7 +9,7 @@ export const Route = createFileRoute("/education")({
     { property: "og:title", content: "For Education | PatienceR" },
     { property: "og:description", content: "Tools and support for classrooms and home learning." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
-  ] },), component: Education });
+  ] }), component: Education });
 
 const paths = [
   { icon: GraduationCap, title: "FutureProof Kit", body: "Four buildable skills for young people: communicating, problem solving, presenting work and being found online.", external: "https://futureproofkit.lovable.app/" },
