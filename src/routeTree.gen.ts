@@ -19,7 +19,9 @@ import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as LibraryRouteImport } from './routes/library'
 import { Route as KitsRouteImport } from './routes/kits'
 import { Route as JourneyRouteImport } from './routes/journey'
+import { Route as EducationRouteImport } from './routes/education'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BusinessDigitalRouteImport } from './routes/business-digital'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AutomationRouteImport } from './routes/automation'
 import { Route as AboutRouteImport } from './routes/about'
@@ -76,9 +78,19 @@ const JourneyRoute = JourneyRouteImport.update({
   path: '/journey',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EducationRoute = EducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessDigitalRoute = BusinessDigitalRouteImport.update({
+  id: '/business-digital',
+  path: '/business-digital',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -112,7 +124,9 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
+  '/business-digital': typeof BusinessDigitalRoute
   '/contact': typeof ContactRoute
+  '/education': typeof EducationRoute
   '/journey': typeof JourneyRoute
   '/kits': typeof KitsRoute
   '/library': typeof LibraryRoute
@@ -130,7 +144,9 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
+  '/business-digital': typeof BusinessDigitalRoute
   '/contact': typeof ContactRoute
+  '/education': typeof EducationRoute
   '/journey': typeof JourneyRoute
   '/kits': typeof KitsRoute
   '/library': typeof LibraryRoute
@@ -149,7 +165,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/automation': typeof AutomationRoute
   '/blog': typeof BlogRoute
+  '/business-digital': typeof BusinessDigitalRoute
   '/contact': typeof ContactRoute
+  '/education': typeof EducationRoute
   '/journey': typeof JourneyRoute
   '/kits': typeof KitsRoute
   '/library': typeof LibraryRoute
@@ -169,7 +187,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/automation'
     | '/blog'
+    | '/business-digital'
     | '/contact'
+    | '/education'
     | '/journey'
     | '/kits'
     | '/library'
@@ -187,7 +207,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/automation'
     | '/blog'
+    | '/business-digital'
     | '/contact'
+    | '/education'
     | '/journey'
     | '/kits'
     | '/library'
@@ -205,7 +227,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/automation'
     | '/blog'
+    | '/business-digital'
     | '/contact'
+    | '/education'
     | '/journey'
     | '/kits'
     | '/library'
@@ -224,7 +248,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AutomationRoute: typeof AutomationRoute
   BlogRoute: typeof BlogRoute
+  BusinessDigitalRoute: typeof BusinessDigitalRoute
   ContactRoute: typeof ContactRoute
+  EducationRoute: typeof EducationRoute
   JourneyRoute: typeof JourneyRoute
   KitsRoute: typeof KitsRoute
   LibraryRoute: typeof LibraryRoute
@@ -310,11 +336,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JourneyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/education': {
+      id: '/education'
+      path: '/education'
+      fullPath: '/education'
+      preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-digital': {
+      id: '/business-digital'
+      path: '/business-digital'
+      fullPath: '/business-digital'
+      preLoaderRoute: typeof BusinessDigitalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -360,7 +400,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AutomationRoute: AutomationRoute,
   BlogRoute: BlogRoute,
+  BusinessDigitalRoute: BusinessDigitalRoute,
   ContactRoute: ContactRoute,
+  EducationRoute: EducationRoute,
   JourneyRoute: JourneyRoute,
   KitsRoute: KitsRoute,
   LibraryRoute: LibraryRoute,
