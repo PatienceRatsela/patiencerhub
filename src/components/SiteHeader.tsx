@@ -3,7 +3,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const nav = [
-  { href: "/#starter-pack", label: "Starter Pack" },
+  { href: "/#essentials", label: "Essentials" },
   { href: "/#registration", label: "Registration" },
   { href: "https://ratselaacademy.co.za", label: "Ratsela Academy", external: true },
 ] as const;
@@ -17,7 +17,7 @@ export function SiteHeader() {
         <Link to="/" className="flex flex-col leading-none">
           <span className="script text-3xl text-cream lg:text-4xl">Patience R.</span>
           <span className="mt-1 text-[0.6rem] tracking-[0.35em] text-cream/60">
-            BUSINESS REGISTRATION &amp; STARTER PACKS
+            CREATE. SOLVE. AUTOMATE. INSPIRE.
           </span>
         </Link>
 

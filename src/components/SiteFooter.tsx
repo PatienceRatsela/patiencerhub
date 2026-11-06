@@ -8,7 +8,7 @@ export function SiteFooter() {
             <span>© {new Date().getFullYear()} — All rights reserved.</span>
           </div>
           <div className="flex gap-6">
-            <a href="/#starter-pack" className="hover:text-gold">Starter Pack</a>
+            <a href="/#essentials" className="hover:text-gold">Essentials</a>
             <a href="/#registration" className="hover:text-gold">Registration</a>
             <a
               href="https://ratselaacademy.co.za"
